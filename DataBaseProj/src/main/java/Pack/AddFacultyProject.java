@@ -42,9 +42,9 @@ public class AddFacultyProject extends HttpServlet {
 		Connection c = null;
 	      try
 	      {
-	          String url = "jdbc:postgresql://cs1.calstatela.edu/cs4222s03";
-	          String username = "cs4222s03";
-	          String password = "cpeJd5oF";
+	          String url = "jdbc:postgresql://cs1.calstatela.edu/username";
+	          String username = "username";
+	          String password = "pw";
 
 	          c = DriverManager.getConnection( url, username, password );
 	          
