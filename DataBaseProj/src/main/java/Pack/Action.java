@@ -39,6 +39,7 @@ public class Action extends HttpServlet {
 		String pno = request.getParameter("pno");
 		String action = request.getParameter("action");
 
+		ArrayList<Integer> fdetails = new ArrayList<>();
 		ArrayList<String> pdetails = new ArrayList<>();
 		String fname = null;
 		
@@ -58,7 +59,10 @@ public class Action extends HttpServlet {
 		          while( rs.next() )
 		          {
 		        	  fname=rs.getString("name");
-		        	  System.out.println(fname);
+		          }
+		          rs = stmt.executeQuery("select * from worked_on_coi where faculty_name = '"+fname+"'");
+		          while(rs.next()){
+		        	  fdetails.add(rs.getInt("pno"));
 		          }
 	          }
 	          if(action.equals("fremove")){
@@ -107,6 +111,7 @@ public class Action extends HttpServlet {
 		//faculty actions-----
 		if(action.equals("fdetails")){
 			request.getSession().setAttribute("fname", fname);
+			request.getSession().setAttribute("fdetails", fdetails);
 			request.getRequestDispatcher( "/WEB-INF/fdetails.jsp" ).forward(request, response );
 		}
 		
