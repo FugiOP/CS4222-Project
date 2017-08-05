@@ -19,6 +19,13 @@
 						<td>${item.pno}</td> <td>${item.sponsorName}</td> <td>${item.startDate }</td> <td>${item.endDate }</td> <td>${item.budget }</td> 
 					</tr>
 				</c:if>
+				<c:forEach items="${fdetails}" var="x">
+					<c:if test="${item.pno==x}">
+						<tr> 
+							<td>${item.pno}</td> <td>${item.sponsorName}</td> <td>${item.startDate }</td> <td>${item.endDate }</td> <td>${item.budget }</td> 
+						</tr>
+					</c:if>
+				</c:forEach>
 			</c:forEach>
 		</table>
 	</div>
